@@ -1,6 +1,10 @@
 # Namma Company - Full Stack Service Aggregator (V1)
 
 Production-ready monorepo for a service aggregator platform similar to Urban Company.
+## Version 2.4
+- Fixed Next.js dynamic params issue
+- Fixed booking/service loading errors
+- Backend API stability improvements
 
 ## Monorepo Structure
 
