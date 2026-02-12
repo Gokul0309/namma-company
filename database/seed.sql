@@ -26,6 +26,10 @@ VALUES
   ('Meena Ravi', '+919900000002', 'meena.tech@namma.local')
 ON CONFLICT (phone) DO NOTHING;
 
+INSERT INTO admin_users (email, password_hash, role)
+VALUES ('admin@nammacompany.com', '$2b$10$PmgQddBr8AbUX8TYdlhK8.QygDEeFuNmXt8ZlssWExINEGOuMMoSu', 'admin')
+ON CONFLICT (email) DO NOTHING;
+
 INSERT INTO technician_services (technician_id, service_id)
 SELECT t.id, s.id
 FROM technicians t

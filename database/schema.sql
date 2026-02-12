@@ -22,6 +22,14 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE IF NOT EXISTS admin_users (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email VARCHAR(120) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role user_role NOT NULL DEFAULT 'admin',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE TABLE IF NOT EXISTS service_categories (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name VARCHAR(120) NOT NULL UNIQUE,

@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { CreateServiceCategoryDto } from '../service-categories/dto/create-service-category.dto';
@@ -15,8 +16,10 @@ import { CreateServiceDto } from '../services/dto/create-service.dto';
 import { UpdateServiceDto } from '../services/dto/update-service.dto';
 import { AdminAssignTechnicianDto } from './dto/admin-assign-technician.dto';
 import { AdminUpdateBookingStatusDto } from './dto/admin-update-booking-status.dto';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('admin')
+@UseGuards(JwtAuthGuard)
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
